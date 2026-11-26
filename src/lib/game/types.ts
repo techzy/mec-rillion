@@ -30,7 +30,6 @@ export interface PromptResult {
   prompt: string;
   answer: string | null;
   points: number;
-  gems: string[];
   accepted: number;
 }
 

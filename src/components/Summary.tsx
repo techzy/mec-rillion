@@ -87,7 +87,6 @@ export function Summary({
             <th>REV</th>
             <th>PROMPT</th>
             <th>YOUR PART</th>
-            <th className="hide-sm">THE MEC-RILLION</th>
             <th style={{ textAlign: "right" }}>PTS</th>
           </tr>
         </thead>
@@ -102,7 +101,6 @@ export function Summary({
                   {r.answer ?? <span className="muted">—</span>}
                   <div className="tier-tag" style={{ color: info.color }}>{info.name}</div>
                 </td>
-                <td className="hide-sm gem">{r.gems.join(" · ")}</td>
                 <td className="n" style={{ color: info.color }}>{r.points}</td>
               </tr>
             );

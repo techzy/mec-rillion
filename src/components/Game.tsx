@@ -378,8 +378,7 @@ export function Game(props: GameProps) {
           <p className="pts">+{last.points} PTS · tolerance now {formatTolerance(score)} mm</p>
           <p className="flavor">{info.line}</p>
           <p className="gem-note">
-            {last.gems.length === 1 ? "The mec-rillion: " : "The mec-rillions: "}
-            <strong>{last.gems.join(" · ")}</strong>
+            {last.points === 100 ? "You found the mec-rillion." : "The mec-rillion is still out there."}
             <br />
             <span style={{ fontSize: 12 }}>{last.accepted} answers were in spec for this one.</span>
           </p>

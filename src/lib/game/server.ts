@@ -46,7 +46,6 @@ export function buildResult(prompt: Prompt, idx: number, answerName: string | nu
     prompt: prompt.text,
     answer: answerName,
     points,
-    gems: prompt.answers.filter((a) => a.tier === 100).map((a) => a.name),
     accepted: prompt.answers.length,
   };
 }

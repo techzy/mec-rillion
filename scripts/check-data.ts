@@ -29,13 +29,19 @@ for (const pr of ALL_PROMPTS) {
   if (!pr.answers.some((a) => a.tier === 100)) { console.log(`${pr.id}: no 100-tier gem`); problems++; }
 }
 console.log(`${PACKS.length} packs, ${ALL_PROMPTS.length} prompts, ${ALL_PROMPTS.reduce((n, p) => n + p.answers.length, 0)} answers`);
-const days = new Set<string>();
-for (let d = 0; d < 10; d++) {
+// Launch sheets must never change once played.
+const FROZEN: Record<string, string> = {
+  "2026-11-26": "sf-machining, sf-handtools, ml-failure, sf-additive, pb-springs, tf-props, mm-controls",
+  "2026-11-27": "mm-motors, tf-flowmeters, sf-machines, sf-cutters, mm-horology, tf-dimensionless, mm-robots",
+};
+for (const [day, ids] of Object.entries(FROZEN)) {
+  if (dailyPromptIds(day).join(", ") !== ids) { console.log(`sheet for ${day} changed!`); problems++; }
+}
+for (let d = 0; d < 30; d++) {
   const day = new Date(Date.UTC(2026, 10, 26 + d)).toISOString().slice(0, 10);
   const got = dailyPromptIds(day);
-  got.forEach((g) => days.add(g));
-  if (d < 2) console.log(day, got.join(", "));
+  if (new Set(got).size !== 7 || got.some((g) => !g)) { console.log(`bad sheet ${day}`, got); problems++; }
+  if (d >= 2 && d < 4) console.log(day, got.join(", "));
 }
-console.log("unique prompts over first 10 days:", days.size);
 console.log(problems ? `${problems} problems` : "OK");
 process.exit(problems ? 1 : 0);

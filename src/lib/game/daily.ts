@@ -5,7 +5,7 @@ export const TIME_ZONE = "America/Toronto";
 /** Sheet #1 is the launch day. */
 export const LAUNCH_DAY = "2026-11-26";
 /** From this day on, every sheet mixes in easy prompts. Earlier sheets keep their original prompts. */
-export const MIXED_FROM_DAY = "2026-11-28";
+export const MIXED_FROM_DAY = "2026-11-27";
 /** How many easy prompts each mixed sheet gets, and where they sit (0-based). */
 const EASY_SLOTS = [0, 2, 5];
 

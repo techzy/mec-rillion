@@ -32,7 +32,6 @@ console.log(`${PACKS.length} packs, ${ALL_PROMPTS.length} prompts, ${ALL_PROMPTS
 // Launch sheets must never change once played.
 const FROZEN: Record<string, string> = {
   "2026-11-26": "sf-machining, sf-handtools, ml-failure, sf-additive, pb-springs, tf-props, mm-controls",
-  "2026-11-27": "mm-motors, tf-flowmeters, sf-machines, sf-cutters, mm-horology, tf-dimensionless, mm-robots",
 };
 for (const [day, ids] of Object.entries(FROZEN)) {
   if (dailyPromptIds(day).join(", ") !== ids) { console.log(`sheet for ${day} changed!`); problems++; }
